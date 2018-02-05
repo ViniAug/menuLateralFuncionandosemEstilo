@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+    <body ng-app="perfil" ng-controller="menuController">
+            <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <img src="https://openclipart.org/image/2400px/svg_to_png/211821/matt-icons_preferences-desktop-personal.png" class="user" alt="">
+                    <a href="#" ng-click="mostrarNoticias()">Noticias</a>
+                    <a href="#" ng-click="mostrarVideos()">Videos</a>
+                    <a href="#" ng-click="mostrarJogos()">Jogos</a>
+                    <a href="#" ng-click="mostrarFavoritos()">Favoritos</a>
+                </div>
+                
+
+                <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Perfil</span>
+
+
+                <!-- noticias -->
+                <div class="conteudo" ng-show="noticias">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin maximus odio orci, ac rhoncus ante porta quis. Pellentesque vehicula justo eros, eu convallis mi luctus molestie. Praesent lacus libero, venenatis at porta ut, fringilla vitae dolor. Proin nisi justo, pretium nec bibendum id, ullamcorper id ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras lobortis fermentum tellus nec faucibus. Vivamus sit amet scelerisque neque.
+
+                            Morbi est neque, efficitur a porta id, sollicitudin a arcu. Sed malesuada fringilla lorem, non viverra massa laoreet nec. Mauris sit amet tortor elit. Proin eros nisl, volutpat ac euismod ut, congue sit amet urna. In ut suscipit dui, sit amet gravida leo. Duis nec elementum felis. Nunc aliquet nulla sed libero ultricies pharetra. Proin tellus sapien, ultricies vitae quam in, convallis venenatis metus. Mauris posuere purus lorem, sit amet egestas tortor eleifend eu. Suspendisse maximus dui ac tempus ullamcorper.
+                            
+                            Sed augue velit, aliquet non dolor vitae, eleifend vestibulum felis. Maecenas scelerisque, dolor ac dictum sagittis, augue dolor bibendum lectus, ut rhoncus nibh lorem ac sapien. Donec sodales ipsum nunc, ac bibendum ligula viverra vel. Fusce at massa quis velit pulvinar convallis nec non libero. Ut at euismod tellus, sit amet placerat nisi. Donec tempus libero maximus felis posuere condimentum a ut ligula. Curabitur placerat dolor tortor, id iaculis turpis interdum eget.
+                            
+                            Donec ut iaculis ligula. Pellentesque id massa in nulla volutpat ullamcorper. Integer non dolor luctus, consectetur turpis vel, egestas augue. Curabitur at nisl at mi laoreet efficitur. Integer maximus neque nec ligula semper, vitae accumsan ligula consectetur. Nam erat elit, aliquam at erat sed, pellentesque placerat leo. Phasellus accumsan bibendum odio eget auctor. Fusce dapibus elementum arcu, sed sodales arcu porttitor eget. Sed auctor tempus ligula, vitae rutrum lectus mollis non. Nunc pretium neque sit amet molestie scelerisque.
+                            
+                            Maecenas dapibus hendrerit quam nec dictum. Nulla non fringilla lacus, a pulvinar ante. Proin eu nisl enim. Vestibulum nec hendrerit augue, id faucibus elit. Mauris lobortis, tellus id ornare consequat, velit massa vestibulum mi, et viverra ex nulla vitae quam. Sed vel ipsum sapien. Vivamus ultrices sit amet lacus ac bibendum. Curabitur elementum hendrerit venenatis. Fusce dictum lacus in ultricies tempor. Quisque a pretium sem. Ut eleifend posuere lectus ac suscipit. Vivamus eget feugiat urna. Mauris egestas nisl at nisi blandit, vel sollicitudin nulla bibendum.
+                        </p>
+
+                
+                </div>
+
+                
+                    
+                </div>
+
+
+                <!-- videos -->
+                <div ng-show="videos" class="conteudo">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Bl8Q7Lt56y0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+
+                <!-- jogos -->
+                <div ng-show="jogos" class="conteudo">
+                    <p>asdajkajkdasdakn</p>
+
+                </div>
+
+                <!-- favoritos -->
+                <div ng-show="favoritos" class="conteudo">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Bl8Q7Lt56y0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                
+                <script>
+                function openNav() {
+                    document.getElementById("mySidenav").style.width = "250px";
+                }
+                
+                function closeNav() {
+                    document.getElementById("mySidenav").style.width = "0";
+                }
+
+                
+                </script>
+                <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+
+                <script>
+                    const app = angular.module('perfil', []);
+
+                app.controller('menuController', ($scope) => {
+
+                $scope.noticias = true;
+                $scope.videos = false;
+                $scope.jogos = false;
+                $scope.favoritos = false;
+
+                $scope.mostrarNoticias = () => {
+                    $scope.noticias = true;
+                    $scope.videos = false;
+                    $scope.jogos = false;
+                    $scope.favoritos = false;
+                }
+
+                $scope.mostrarVideos = () => {
+                    $scope.noticias = false;
+                    $scope.videos = true;
+                    $scope.jogos = false;
+                    $scope.favoritos = false;
+                }
+
+                $scope.mostrarJogos = () => {
+                    $scope.noticias = false;
+                    $scope.videos = false;
+                    $scope.jogos = true;
+                    $scope.favoritos = false;
+                }
+
+                $scope.mostrarFavoritos = () => {
+                    $scope.noticias = false;
+                    $scope.videos = false;
+                    $scope.jogos = false;
+                    $scope.favoritos = true;
+                }
+
+                });
+
+                    
+
+                </script>
+    </body>
+</html>
